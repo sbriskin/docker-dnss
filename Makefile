@@ -1,7 +1,7 @@
 NAME := dnss
-TAG := 1.0
 SPACE_NAME := sbriskin
 IMAGE_NAME := $(SPACE_NAME)/$(NAME)
+TAG := $(shell date +%y).$(shell date +%m)
 PORT := 8853
 
 .PHONY: help build push clean run test kill
@@ -33,3 +33,4 @@ test: ## Test connection
 kill: ## Stop and remove container
 	docker kill $(NAME)
 	docker rm $(NAME)
+
